@@ -24,7 +24,7 @@ The implementation consists of the following components:
 
 ## Overview
 
-The eBPF Container Auditor is a cutting-edge solution designed to enhance the auditing capabilities within containerized environments using eBPF technology. This tool provides real-time monitoring and security analytics by capturing commands executed inside containers, offering unprecedented visibility into container activities.
+Developed by Fábio Junior Bertinatto, Daniel Arioza, Jéferson Campos Nobre, and Lisandro Zambenedetti Granville from the Instituto de Informática - Universidade Federal do Rio Grande do Sul.
 
 ## Features
 
@@ -39,6 +39,20 @@ The eBPF Container Auditor is a cutting-edge solution designed to enhance the au
 
 - Kubernetes cluster (Version 1.26 or higher recommended)
 - Containerd configured with our custom runc wrapper
+
+### Installation
+
+1. **Configure Containerd**: Update the `/etc/containerd/config.toml` file to use the custom wrapper:
+
+    ```toml
+    [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wrapper]
+    runtime_type = "io.containerd.runc.v1"
+    pod_annotations = ["*"]
+    container_annotations = ["*"]
+
+    [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wrapper.options]
+    BinaryName="/usr/bin/wrapper"
+    ```
 
 2. **Create RuntimeClass in Kubernetes**:
 
@@ -94,8 +108,9 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the Apache License, Version 2.0 - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgements
 
 This project was supported by The São Paulo Research Foundation (FAPESP), grant number 2020/05152-7, under the PROFISSA project.
+
