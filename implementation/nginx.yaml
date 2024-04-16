@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      runtimeClassName: wrapper
+      containers:
+      - name: nginx
+        image: nginx:latest
+          
+        # lifecycle:
+        #   postStart:
+        #     exec:
+        #       command: ["/bin/sh", "-c", "/data/uretprobe/uretprobe >> /tmp/commands.txt"]
+
+        # ports:
+        # - containerPort: 80
+        volumeMounts:
+        - mountPath: /data
+          name: uretprobe
+        - mountPath: /socket
+          name: socket
+      volumes:
+      - name: uretprobe
+        hostPath:
+          # directory location on host
+          path: /home/vagrant/src/k8s.io/kubernetes
+          # this field is optional
+          type: Directory
+      - name: socket
+        hostPath:
+          # directory location on host
+          path: /tmp
+          # this field is optional
+          type: Directory

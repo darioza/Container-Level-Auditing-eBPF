@@ -1,0 +1,96 @@
+Vagrant.configure("2") do |config|
+  # config.vm.box = "fedora/37-cloud-base"
+  # config.vm.box_version = "37.20221105.0"  
+  config.vm.box = "generic/fedora37"  
+
+  config.vm.provider :libvirt do |libvirt|
+    # https://github.com/vagrant-libvirt/vagrant-libvirt/blob/master/README.md
+    libvirt.driver = "kvm"
+    libvirt.cpus = 4
+    libvirt.memory = 4096
+    libvirt.nested = true
+    libvirt.volume_cache = "none"
+    #libvirt.random_hostname = true 
+  end
+
+  config.vm.synced_folder '.', '/home/vagrant/src/k8s.io/kubernetes', type: 'rsync',
+    rsync__verbose: true,
+    rsync__args: ['--archive'],
+    rsync__exclude: ['.git/']
+    # rsync__exclude: ['.git/', '_output/local/go', '.make', 'pkg', 'vendor', 'docs', 'default.etcd', 'staging', 'test', 'translations']
+  
+  # Execute as root
+  config.vm.provision 'shell', inline: <<-SHELL
+    # dnf upgrade -y
+    dnf install -y git vim tmux gcc strace make openssl jq
+
+    # Install golang stable
+    curl -sL -o /tmp/gimme2 https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+    install -o root -g root -m 0755 /tmp/gimme2 /usr/local/bin/gimme
+    echo 'eval $(gimme stable)' >> ~/.bash_profile
+
+    # Containerd and docker
+    dnf install -y dnf-plugins-core
+    dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+    dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    systemctl start docker
+
+    # Create a containerd config
+    containerd config default > /etc/containerd/config.toml
+    systemctl restart containerd
+
+    # Download and install latest kubectl
+    wget -q -P /tmp "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    install -o root -g root -m 0755 /tmp/kubectl /usr/local/bin/kubectl
+
+    # Install crictl
+    VERSION="v1.26.0" # check latest version in /releases page
+    curl -L https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-${VERSION}-linux-amd64.tar.gz --output crictl-${VERSION}-linux-amd64.tar.gz
+    tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
+    rm -f crictl-$VERSION-linux-amd64.tar.gz
+    
+    # Create crictl config
+    cat <<EOF >>/etc/crictl.yaml
+    runtime-endpoint: unix:///run/containerd/containerd.sock
+    image-endpoint: unix:///run/containerd/containerd.sock
+    timeout: 2
+    debug: true
+    pull-image-on-create: false
+    EOF
+
+    # CoreDNS will not start if there is a localhost address in resolv.conf
+    systemctl stop systemd-resolved
+    systemctl disable systemd-resolved
+    echo 'nameserver 1.1.1.1' > /etc/resolv.conf
+
+    # Install etcd
+    /home/vagrant/src/k8s.io/kubernetes/hack/install-etcd.sh
+
+    # Need ipv6 enabled for local-up-cluster.sh to work with default settings
+    sed -i 's/disable_ipv6 = 1/disable_ipv6 = 0/' /etc/sysctl.conf
+    sysctl --system
+
+    # Home
+    echo 'export PATH=/home/vagrant/src/k8s.io/kubernetes/third_party/etcd:${PATH}' >> ~/.bash_profile
+    echo 'export KUBECONFIG=/var/run/kubernetes/admin.kubeconfig' >> ~/.bash_profile
+    echo 'alias k=/home/vagrant/src/k8s.io/kubernetes/cluster/kubectl.sh' >> ~/.bashrc
+    source ~/.bash_profile
+    source ~/.bashrc
+  SHELL
+
+  # Settings for user 'vagrant'
+  config.vm.provision 'shell', privileged: false, inline: <<-SHELL
+    # Install etcd
+    /home/vagrant/src/k8s.io/kubernetes/hack/install-etcd.sh
+
+    # Env vars
+    echo 'eval $(gimme stable)' >> ~/.bash_profile
+    echo 'export PATH=/home/vagrant/src/k8s.io/kubernetes/third_party/etcd:${PATH}' >> ~/.bash_profile
+    echo 'export KUBECONFIG=/var/run/kubernetes/admin.kubeconfig' >> ~/.bash_profile
+    echo 'alias k=/home/vagrant/src/k8s.io/kubernetes/cluster/kubectl.sh' >> ~/.bashrc
+    source ~/.bash_profile
+    source ~/.bashrc
+  SHELL
+
+end
+

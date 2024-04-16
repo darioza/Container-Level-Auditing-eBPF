@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Find out the file where the PID of the exec'd process
+FILE=$(echo "$@" | grep ' exec ' | awk -F'--pid-file ' '{print $2}' | cut -d' ' -f1)
+
+# Send that PID file to the daemon that should start nsenter
+if [ ! -z "$FILE" ]; then
+    # curl -d "path=$FILE" "127.0.0.1:8081/pid2"
+    curl --unix-socket /tmp/mysocket.sock --data "path=$FILE" "localhost/pid2"
+fi
+
+echo "$FILE" >> /tmp/wrapper.log
+
+# Now we can safely let runc
+exec /usr/bin/runc "$@"
+

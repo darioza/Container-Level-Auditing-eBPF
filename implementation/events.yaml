@@ -1,0 +1,467 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ls"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:12:06Z"
+    name: example-event-5322651722046172096
+    namespace: default
+    resourceVersion: "15669"
+    uid: 509b47e1-d844-41aa-9e0d-4a2d83a54292
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "if a"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:12:26Z"
+    name: example-event-8246503269383310111
+    namespace: default
+    resourceVersion: "15676"
+    uid: d7cc41e4-72d9-4e56-a642-18664a5a3eef
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ip a"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:12:37Z"
+    name: example-event-6414139334633735585
+    namespace: default
+    resourceVersion: "15680"
+    uid: 4c01e776-ff03-4fbd-b54c-5b4cabeaf761
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ip"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:12:39Z"
+    name: example-event-7863791519518262720
+    namespace: default
+    resourceVersion: "15681"
+    uid: 7068d794-b1ab-4714-874a-d2d5ed3776e6
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ping www.google.com"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:12:45Z"
+    name: example-event-8640405955221628284
+    namespace: default
+    resourceVersion: "15685"
+    uid: 0b7a6dc2-3ded-46b9-b214-9a96ee225421
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "cat /etc/resolv.conf "'
+  metadata:
+    creationTimestamp: "2023-07-09T00:12:53Z"
+    name: example-event-4139034358485465809
+    namespace: default
+    resourceVersion: "15688"
+    uid: 96165235-77ac-43c0-a984-c8c55e3a567b
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "echo \"nameserver 1.1.1.1\" > /etc/resolv.conf"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:13:12Z"
+    name: example-event-316503404506020031
+    namespace: default
+    resourceVersion: "15694"
+    uid: 5060edb9-4df4-48e1-9a5b-45feb655f9cf
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "vim /etc/nginx/nginx.conf "'
+  metadata:
+    creationTimestamp: "2023-07-09T00:13:33Z"
+    name: example-event-8699308956044244777
+    namespace: default
+    resourceVersion: "15702"
+    uid: e7ff2951-00c0-4416-865d-392e146ddb1f
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "apt update && apt install nvim"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:13:45Z"
+    name: example-event-7739065712686800119
+    namespace: default
+    resourceVersion: "15706"
+    uid: d322ed17-553a-42fb-9c88-18e86b5a5688
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "apt update && apt install vim"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:13:58Z"
+    name: example-event-563400529271759247
+    namespace: default
+    resourceVersion: "15711"
+    uid: 5adc2f59-0902-4b20-84b6-8677bafecb21
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ps"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:14:40Z"
+    name: example-event-2301939890788618700
+    namespace: default
+    resourceVersion: "15724"
+    uid: aecc73af-8a66-4414-ac74-a969a06df239
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "apt install procps"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:15:02Z"
+    name: example-event-7504198301430630636
+    namespace: default
+    resourceVersion: "15733"
+    uid: f5239854-ca85-452c-a1b9-995ba1a64996
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ps"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:16:05Z"
+    name: example-event-8267779121571695851
+    namespace: default
+    resourceVersion: "15758"
+    uid: ccbee0ff-0fb1-40c6-b392-8f8c13f1bbba
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "ps aux"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:16:08Z"
+    name: example-event-121011681235684330
+    namespace: default
+    resourceVersion: "15760"
+    uid: 57098773-af10-4c87-bd6d-871b633172a2
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "strace -p 1"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:17:08Z"
+    name: example-event-655184438838184672
+    namespace: default
+    resourceVersion: "15778"
+    uid: 7882fe7a-13ae-4871-9fb8-690abda6ba65
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "dnf install strace"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:17:15Z"
+    name: example-event-6499405683641457200
+    namespace: default
+    resourceVersion: "15781"
+    uid: 70f95917-2112-452c-83b8-c191d460d6b0
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "apt install strace"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:17:19Z"
+    name: example-event-287228596740713560
+    namespace: default
+    resourceVersion: "15783"
+    uid: 74a6c081-1f3c-406a-8947-df13b4454b3c
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "strace -p 1"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:17:30Z"
+    name: example-event-1168884782201855990
+    namespace: default
+    resourceVersion: "15788"
+    uid: b1244fe6-1af2-4079-8c85-85f267bb3b9c
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "strace -p 28"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:18:11Z"
+    name: example-event-3194389140014666667
+    namespace: default
+    resourceVersion: "15801"
+    uid: d9d42f38-2459-4b9d-84aa-28d2601edad7
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "strace -p 1"'
+  metadata:
+    creationTimestamp: "2023-07-09T00:18:17Z"
+    name: example-event-1976681286480802345
+    namespace: default
+    resourceVersion: "15803"
+    uid: 6ecdcbd4-0f55-4395-929e-91120bfaf2e1
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "cat /var/log/nginx/access.log "'
+  metadata:
+    creationTimestamp: "2023-07-09T00:18:43Z"
+    name: example-event-5322308684472361026
+    namespace: default
+    resourceVersion: "15813"
+    uid: 1866ca06-fd75-4cd4-9497-18d2e2ad37be
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- apiVersion: v1
+  eventTime: null
+  firstTimestamp: null
+  involvedObject:
+    kind: Pod
+    name: nginx-deployment-89c6ff86b-92ndx
+    namespace: default
+  kind: Event
+  lastTimestamp: null
+  message: 'Command executed: "cat /var/log/nginx/error.log "'
+  metadata:
+    creationTimestamp: "2023-07-09T00:19:01Z"
+    name: example-event-6296229127488952808
+    namespace: default
+    resourceVersion: "15819"
+    uid: ced822ee-8c22-4c99-b39d-e73d0a68f899
+  reason: ShellCommandExecutedReason
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+kind: List
+metadata:
+  resourceVersion: ""

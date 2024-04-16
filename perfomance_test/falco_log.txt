@@ -1,0 +1,38 @@
+daniel_arioza@lima-learning-ebpf:~/learning-ebpf$ sudo python3 teste_performance.py
+Testing rule 'Terminal in Container'...
+Test 'Terminal in Container' completed.
+Execution Time: 49.16 seconds
+CPU Usage: -2.60%
+Memory Usage: 6.43 MB
+
+Testing rule 'Write below etc'...
+Test 'Write below etc' completed.
+Execution Time: 49.20 seconds
+CPU Usage: 2.40%
+Memory Usage: 1.55 MB
+
+daniel_arioza@lima-learning-ebpf:~/learning-ebpf$ sudo python3 teste_performance.py
+Testing rule 'Terminal in Container'...
+Test 'Terminal in Container' completed.
+Execution Time: 49.35 seconds
+CPU Usage: 0.00%
+Memory Usage: 2.34 MB
+
+Testing rule 'Write below etc'...
+Test 'Write below etc' completed.
+Execution Time: 49.84 seconds
+CPU Usage: 0.00%
+Memory Usage: 0.76 MB
+
+daniel_arioza@lima-learning-ebpf:~/learning-ebpf$ sudo python3 teste_performance.py
+Testing rule 'Terminal in Container'...
+Test 'Terminal in Container' completed.
+Execution Time: 49.35 seconds
+CPU Usage: 0.00%
+Memory Usage: 2.34 MB
+
+Testing rule 'Write below etc'...
+Test 'Write below etc' completed.
+Execution Time: 49.84 seconds
+CPU Usage: 0.00%
+Memory Usage: 0.76 MB
